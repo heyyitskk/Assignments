@@ -8,7 +8,5 @@ async function fetchTodos() {
     }
 }
 
-(async () => {
-    const users = await fetchTodos();
-    console.log(users);
-})();
+const users = await fetchTodos();
+console.log(users);
