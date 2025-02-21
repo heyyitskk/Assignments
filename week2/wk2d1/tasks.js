@@ -50,10 +50,14 @@ const removeTask = async (id) => {
   const tasks = await loadTasks();
   if (tasks[id]) {
     const keys = Object.keys(tasks);
-    for (let i = keys.indexOf(id) + 1; i < keys.length; i++) {
-        const currentKey = keys[i];
-        tasks[currentKey - 1] = tasks[currentKey]; 
-        delete tasks[currentKey];
+    if(id == keys.length)
+      delete tasks[id];
+    else{
+      for (let i = keys.indexOf(id) + 1; i < keys.length; i++) {
+          const currentKey = keys[i];
+          tasks[currentKey - 1] = tasks[currentKey]; 
+          delete tasks[currentKey];
+      }
     }
     await saveTasks(tasks);
     console.log(`Task "${id}" removed successfully!`);
