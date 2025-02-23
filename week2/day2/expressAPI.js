@@ -41,6 +41,6 @@ app.delete('/users/:id',(req, res) => {
     res.status(200).json({"msg":`user deleted`})
 });
 
-app.get('/requests', (req, res) => res.send(request));
+app.get('/requests', (req, res) => res.status(200).json({"Requests sent":request}));
 
 app.listen(8000, () => console.log("listening at port 8000"));
