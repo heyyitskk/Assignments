@@ -1,6 +1,9 @@
 import express from '../../node_modules/express/index.js'
+import morgan from '../../node_modules/morgan/index.js'
 
 const app = express();
+
+app.use(morgan("combined"));
 
 const userData = [
     { id: 1, name:'Kunal' }, 
